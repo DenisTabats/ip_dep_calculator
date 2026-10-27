@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор: квадратное уравнение и вклад</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        .bar-cell { vertical-align: bottom; }
+        #gist { transition: height .25s ease; }
+        #korni { white-space: normal; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="display-2 text-center">Решение квадратного уравнения ax<sup>2</sup>+bx+c=0</h1>
+</div>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col">
+            <img class="img-fluid" src="https://yagubov.ru/_bd/92/38355674.jpg" alt="Квадратное уравнение">
+        </div>
+
+        <div class="col">
+            <form onsubmit="square(); return false;">
+                <div class="mb-3">
+                    <label for="A" class="form-label">A</label>
+                    <input type="text" class="form-control" id="A" placeholder="например 1">
+                </div>
+                <div class="mb-3">
+                    <label for="B" class="form-label">B</label>
+                    <input type="text" class="form-control" id="B" placeholder="например -3">
+                </div>
+                <div class="mb-3">
+                    <label for="C" class="form-label">C</label>
+                    <input type="text" class="form-control" id="C" placeholder="например 2">
+                </div>
+                <button type="submit" class="btn btn-primary">Рассчитать</button>
+            </form>
+        </div>
+
+        <div class="col">
+            <h2>Решение</h2>
+            <div id="korni" class="fs-5"></div>
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <h2 class="mb-3">Калькулятор банковского вклада</h2>
+    <div class="row">
+        <div class="col">
+            <form name="calculator">
+                <div class="my-2">
+                    <label for="money" class="form-label">Сумма вклада (₽)</label>
+                    <input id="money" name="money" class="form-control" type="number" min="0" step="any" value="10000">
+                </div>
+
+                <div class="my-2">
+                    <label for="months" class="form-label">Срок</label>
+                    <select id="months" name="months" class="form-select">
+                        <option value="3">3 (минимум)</option>
+                        <option value="6">6 (полгода)</option>
+                        <option value="12">12 (год)</option>
+                        <option value="18">18 (1,5 года)</option>
+                        <option value="24">24 (2 года)</option>
+                        <option value="30">30 (2,5 года)</option>
+                        <option value="36">36 (3 года)</option>
+                        <option value="42">42 (3,5 года)</option>
+                        <option value="48">48 (4 года)</option>
+                        <option value="54">54 (4,5 года)</option>
+                        <option value="60">60 (5 лет)</option>
+                    </select>
+                </div>
+
+                <div class="my-2">
+                    <label for="stavka" class="form-label">Процент годовых (%)</label>
+                    <input id="stavka" name="stavka" class="form-control" type="number" min="0" step="any" value="5">
+                </div>
+            </form>
+        </div>
+
+        <div class="col">
+            <table class="table table-bordered w-auto">
+                <tr>
+                    <td>Было</td>
+                    <td>Станет</td>
+                </tr>
+                <tr>
+                    <td id="mon-before" class="fw-bold"></td>
+                    <td id="mon-after" class="fw-bold text-success"></td>
+                </tr>
+                <tr>
+                    <td class="bar-cell">
+                        <div style="background: red; width:40px; height:100px; border: 1px solid;"></div>
+                    </td>
+                    <td class="bar-cell">
+                        <div id="gist" style="background: green; width:40px; height:0px; border: 1px solid;"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="my.js"></script>
+</body>
+</html>
